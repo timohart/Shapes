@@ -26,7 +26,7 @@ public class Cuboid extends Shape {
 	 * @see org.cvtc.shapes.Shape#surfaceArea()
 	 */
 	@Override
-	float surfaceArea() {
+	public float surfaceArea() {
 		return 2 * (this.width * this.height + this.width * this.depth + this.depth * this.height);
 	}
 
@@ -34,7 +34,7 @@ public class Cuboid extends Shape {
 	 * @see org.cvtc.shapes.Shape#volume()
 	 */
 	@Override
-	float volume() {
+	public float volume() {
 		return this.depth * this.height * this.width;
 	}
 

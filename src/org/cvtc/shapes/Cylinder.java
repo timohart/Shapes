@@ -52,7 +52,7 @@ public class Cylinder extends Shape {
 	 * @see org.cvtc.shapes.Shape#surfaceArea()
 	 */
 	@Override
-	float surfaceArea() {
+	public float surfaceArea() {
 		return (float) (2 * Math.PI * this.radius * this.height + 2 * Math.PI * Math.pow(this.radius, 2));
 	}
 
@@ -60,7 +60,7 @@ public class Cylinder extends Shape {
 	 * @see org.cvtc.shapes.Shape#volume()
 	 */
 	@Override
-	float volume() {
+	public float volume() {
 		return (float) (Math.PI * Math.pow(this.radius, 2) * this.height);
 	}
 

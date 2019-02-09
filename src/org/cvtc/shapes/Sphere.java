@@ -36,7 +36,7 @@ public class Sphere extends Shape {
 	 * @see org.cvtc.shapes.Shape#surfaceArea()
 	 */
 	@Override
-	float surfaceArea() {
+	public float surfaceArea() {
 		return (float) (4 * Math.PI * Math.pow(this.radius, 2));
 	}
 
@@ -44,8 +44,8 @@ public class Sphere extends Shape {
 	 * @see org.cvtc.shapes.Shape#volume()
 	 */
 	@Override
-	float volume() {
-		return (float) ((4/3) * Math.PI * Math.pow(this.radius, 3));
+	public float volume() {
+		return (float) (1.333 * Math.PI * Math.pow(this.radius, 3));
 	}
 
 	/* (non-Javadoc)

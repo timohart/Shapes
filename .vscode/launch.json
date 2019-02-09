@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ShapesTest",
+      "request": "launch",
+      "mainClass": "org.cvtc.shapes.ShapesTest"
+    }
+  ]
+}
