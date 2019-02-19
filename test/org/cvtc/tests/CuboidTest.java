@@ -6,20 +6,22 @@ package org.cvtc.tests;
 import static org.junit.Assert.*;
 
 import org.cvtc.shapes.Cuboid;
+import org.cvtc.shapes.MessageBox;
 import org.junit.Test;
 
 /**
  * @author Timothy M. Hartwig
  * 
  * Created on: Feb 8, 2019
- * Modified on: 2019-02-08
+ * Modified on: 2019-02-18
  *
  */
 public class CuboidTest {
+	private MessageBox messageBox = new MessageBox();
 	
-	private Cuboid cube1 = new Cuboid(1.0f, 1.0f, 1.0f);
-	private Cuboid cube2 = new Cuboid(2.0f, 2.0f, 2.0f);
-	private Cuboid cube3 = new Cuboid(3.0f, 3.0f, 3.0f);
+	private Cuboid cube1 = new Cuboid(messageBox, 1.0f, 1.0f, 1.0f);
+	private Cuboid cube2 = new Cuboid(messageBox, 2.0f, 2.0f, 2.0f);
+	private Cuboid cube3 = new Cuboid(messageBox, 3.0f, 3.0f, 3.0f);
 
 	/**
 	 * Test methods for {@link org.cvtc.shapes.Cuboid#surfaceArea()}.
@@ -62,7 +64,7 @@ public class CuboidTest {
 	 */
 	@Test
 	public void testCuboid() {
-		Cuboid c = new Cuboid(-2.0f, -2.0f, -2.0f);
+		Cuboid c = new Cuboid(messageBox, -2.0f, -2.0f, -2.0f);
 		assertEquals(c.getDepth(), 1.0f, 0.0);
 		assertEquals(c.getHeight(), 1.0f, 0.0);
 		assertEquals(c.getWidth(), 1.0f, 0.0);

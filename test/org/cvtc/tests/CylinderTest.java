@@ -6,20 +6,22 @@ package org.cvtc.tests;
 import static org.junit.Assert.*;
 
 import org.cvtc.shapes.Cylinder;
+import org.cvtc.shapes.MessageBox;
 import org.junit.Test;
 
 /**
  * @author Timothy M. Hartwig
  * 
  * Created on: Feb 8, 2019
- * Modified on: 2019-02-08
+ * Modified on: 2019-02-18
  *
  */
 public class CylinderTest {
+	private MessageBox messageBox = new MessageBox();
 	
-	private Cylinder tube1 = new Cylinder(1.0f, 1.0f);
-	private Cylinder tube2 = new Cylinder(2.0f, 2.0f);
-	private Cylinder tube3 = new Cylinder(3.0f, 3.0f);
+	private Cylinder tube1 = new Cylinder(messageBox, 1.0f, 1.0f);
+	private Cylinder tube2 = new Cylinder(messageBox, 2.0f, 2.0f);
+	private Cylinder tube3 = new Cylinder(messageBox, 3.0f, 3.0f);
 
 	/**
 	 * Test methods for {@link org.cvtc.shapes.Cylinder#surfaceArea()}.
@@ -62,7 +64,7 @@ public class CylinderTest {
 	 */
 	@Test
 	public void testCylinder() {
-		Cylinder c = new Cylinder(-1.5F, -1.5f);
+		Cylinder c = new Cylinder(messageBox, -1.5F, -1.5f);
 		assertEquals(c.getHeight(), 1.0F, 0.0);
 		assertEquals(c.getRadius(), 1.0f, 0.0);
 	}

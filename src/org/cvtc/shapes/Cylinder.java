@@ -3,19 +3,17 @@
  */
 package org.cvtc.shapes;
 
-import javax.swing.JOptionPane;
-
 /**
  * @author Iimothy M. Hartwig
  *
  */
-public class Cylinder extends Shape {
+public class Cylinder extends Shape implements Render {
 	
 	private float radius = 0.0f;
 	private float height = 0.0f;
 
-	public Cylinder(float radius, float height) {
-		super();
+	public Cylinder(MessageBox messageBox, float radius, float height) {
+		super(messageBox);
 		setRadius(radius);
 		setHeight(height);
 	}
@@ -68,9 +66,11 @@ public class Cylinder extends Shape {
 	 * @see org.cvtc.shapes.Shape#render()
 	 */
 	@Override
+	public
 	void render() {
-		massageBoxSimple("The cylinder has a height of " + this.height + " units and a radius of " + this.radius + 
-				" units.\n The cylinder has a surface area of " + surfaceArea() + " units squard and a volume of " + volume() + " units cubid.");
+		messageBox.show("The cylinder has a height of " + this.height + " units and a radius of " + this.radius + 
+				" units.\n The cylinder has a surface area of " + surfaceArea() + " units squard and a volume of " + volume() + " units cubid.",
+				"Render");
 	}
 	
 	/**
@@ -81,16 +81,8 @@ public class Cylinder extends Shape {
 		if (number > 0) {
 			return number;
 		}
-		massageBoxSimple("You have entered a incorrect value," + number + ", which is not larger then 0 and the value has been set to 1.0.");
+		messageBox.show("You have entered a incorrect value," + number + ", which is not larger then 0 and the value has been set to 1.0.", 
+				"Error");
 		return 1.0f;
-	}
-	
-	/**
-	 * Creates a pop up the the provided message.
-	 * @param message
-	 */
-	private static void massageBoxSimple(String message) {
-		JOptionPane.showMessageDialog(null, message);
-	
 	}
 }

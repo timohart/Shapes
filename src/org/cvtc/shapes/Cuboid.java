@@ -3,20 +3,18 @@
  */
 package org.cvtc.shapes;
 
-import javax.swing.JOptionPane;
-
 /**
  * @author Iimothy M. Hartwig
  *
  */
-public class Cuboid extends Shape {
+public class Cuboid extends Shape implements Render {
 	
 	private float depth = 0.0f;
 	private float height =  0.0f;
 	private float width = 0.0f;
 	
-	public Cuboid(float depth, float height, float width) {
-		super();
+	public Cuboid(MessageBox messageBox, float depth, float height, float width) {
+		super(messageBox);
 		setDepth(depth);
 		setHeight(height);
 		setWidth(width);
@@ -42,9 +40,11 @@ public class Cuboid extends Shape {
 	 * @see org.cvtc.shapes.Shape#render()
 	 */
 	@Override
+	public
 	void render() {
-		massageBoxSimple("Cuboid has a depth of " + this.depth + " units, a height of " + this.height + " units, and a width of " + this.width + 
-				" units.\n The cuboid has a surface area of " + surfaceArea() + " units squard and a volume of " + volume() + " units cubid.");
+		messageBox.show("Cuboid has a depth of " + this.depth + " units, a height of " + this.height + " units, and a width of " + this.width + 
+				" units.\n The cuboid has a surface area of " + surfaceArea() + " units squard and a volume of " + volume() + " units cubid.",
+				"Render");
 	}
 
 	/**
@@ -97,16 +97,8 @@ public class Cuboid extends Shape {
 		if (number > 0) {
 			return number;
 		}
-		massageBoxSimple("You have entered a incorrect value," + number + ", which is not larger then 0 and the value has been set to 1.0.");
+		messageBox.show("You have entered a incorrect value," + number + ", which is not larger then 0 and the value has been set to 1.0.",
+				"Error");
 		return 1.0f;
-	}
-	
-	/**
-	 * Creates a pop up the the provided message.
-	 * @param message
-	 */
-	private static void massageBoxSimple(String message) {
-		JOptionPane.showMessageDialog(null, message);
-	}
-	
+	}	
 }
