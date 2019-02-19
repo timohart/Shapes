@@ -3,6 +3,8 @@
  */
 package org.cvtc.shapes;
 
+import javax.swing.JOptionPane;
+
 /**
  * @author Timothy M. Hartwig
  *
@@ -11,14 +13,18 @@ package org.cvtc.shapes;
  *
  */
 public class MessageBox implements Dialog {
+	/**
+	 * 
+	 */
+	public MessageBox() {
+	}
 
 	/* (non-Javadoc)
 	 * @see org.cvtc.shapes.Dialog#show(java.lang.String, java.lang.String)
 	 */
 	@Override
 	public int show(String message, String title) {
-		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog (null, message, title, 1);
 		return 0;
 	}
-
 }

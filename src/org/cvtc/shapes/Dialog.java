@@ -11,5 +11,11 @@ package org.cvtc.shapes;
  *
  */
 public interface Dialog {
+	/**
+	 * Creats a simple Dialog box provided 
+	 * @param String message
+	 * @param String title
+	 * @return int 0
+	 */
 	int show(String message, String title);
 }

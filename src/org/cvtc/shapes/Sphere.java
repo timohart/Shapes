@@ -3,18 +3,16 @@
  */
 package org.cvtc.shapes;
 
-import javax.swing.JOptionPane;
-
 /**
  * @author Iimothy M. Hartwig
  *
  */
-public class Sphere extends Shape {
+public class Sphere extends Shape implements Render {
 	
 	private float radius = 0.0f;
 
-	public Sphere(float radius) {
-		super();
+	public Sphere(MessageBox messageBox, float radius) {
+		super(messageBox);
 		setRadius(radius);
 	}
 
@@ -52,9 +50,10 @@ public class Sphere extends Shape {
 	 * @see org.cvtc.shapes.Shape#render()
 	 */
 	@Override
+	public
 	void render() {
-		massageBoxSimple("The sphere has a radius of " + this.radius + 
-				"units.\n The sphere has a surface area of " + surfaceArea() + " units squard and a volume of " + volume() + " units cubid.");
+		messageBox.show("The sphere has a radius of " + this.radius + 
+				"units.\n The sphere has a surface area of " + surfaceArea() + " units squard and a volume of " + volume() + " units cubid.", "Render");
 	}
 	
 	/**
@@ -65,17 +64,7 @@ public class Sphere extends Shape {
 		if (number > 0) {
 			return number;
 		}
-		massageBoxSimple("You have entered a incorrect value," + number + ", which is not larger then 0 and the value has been set to 1.0.");
+		messageBox.show("You have entered a incorrect value," + number + ", which is not larger then 0 and the value has been set to 1.0.", "Error");
 		return 1.0f;
 	}
-	
-	/**
-	 * Creates a pop up the the provided message.
-	 * @param message
-	 */
-	private static void massageBoxSimple(String message) {
-		JOptionPane.showMessageDialog(null, message);
-	
-	}
-
 }

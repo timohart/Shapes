@@ -5,6 +5,7 @@ package org.cvtc.tests;
 
 import static org.junit.Assert.*;
 
+import org.cvtc.shapes.MessageBox;
 import org.cvtc.shapes.Sphere;
 import org.junit.Test;
 
@@ -12,14 +13,15 @@ import org.junit.Test;
  * @author Timothy M. Hartwig
  * 
  * Created on: Feb 9, 2019
- * Modified on: 2019-02-09
+ * Modified on: 2019-02-18
  *
  */
 public class SphereTest {
+	private MessageBox messageBox = new MessageBox();
 	
-	private Sphere sphere1 = new Sphere(1.0f);
-	private Sphere sphere2 = new Sphere(2.0f);
-	private Sphere sphere3 = new Sphere(3.0f);
+	private Sphere sphere1 = new Sphere(messageBox, 1.0f);
+	private Sphere sphere2 = new Sphere(messageBox, 2.0f);
+	private Sphere sphere3 = new Sphere(messageBox, 3.0f);
 
 	/**
 	 * Test method for {@link org.cvtc.shapes.Sphere#surfaceArea()}.
@@ -62,7 +64,7 @@ public class SphereTest {
 	 */
 	@Test
 	public void testSphere() {
-		Sphere s = new Sphere(-1.0f);
+		Sphere s = new Sphere(messageBox, -1.0f);
 		assertEquals(s.getRadius(), 1.0f, 0.0);
 	}
 
