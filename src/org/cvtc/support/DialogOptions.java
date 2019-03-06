@@ -38,7 +38,7 @@ public class DialogOptions {
 	/**
 	 * @param options the options to set
 	 */
-	public void setOptions(String[] options) {
+	public void setOptions(Object[] options) {
 		this.options = options;
 	}
 
