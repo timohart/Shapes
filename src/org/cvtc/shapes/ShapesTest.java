@@ -25,9 +25,12 @@ public class ShapesTest {
 				"Shape Factory"));
 
 
-		Cuboid cuboid1 = (Cuboid) factory.make((ShapeType) factory.getDialog().show());
-		Cylinder cylinder1 = new Cylinder(mb, 1, 1);
-		Sphere sphere1 = new Sphere(mb, 1);
+		ShapeType Cuboid = null;
+		Cuboid cuboid1 = (org.cvtc.shapes.Cuboid) factory.make(Cuboid);
+		ShapeType Cylinder = null;
+		Cylinder cylinder1 = (org.cvtc.shapes.Cylinder) factory.make(Cylinder);
+		ShapeType Sphere = null;
+		Sphere sphere1 = (org.cvtc.shapes.Sphere) factory.make(Sphere);
 		
 		cuboid1.render();
 		cylinder1.render();
