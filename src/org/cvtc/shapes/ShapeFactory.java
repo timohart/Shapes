@@ -3,6 +3,9 @@
  */
 package org.cvtc.shapes;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.cvtc.support.DialogOptions;
 
 /**
@@ -12,10 +15,6 @@ import org.cvtc.support.DialogOptions;
  * Modified: 2019-02-28
  *
  */
-
-enum ShapeType {
-	Cuboid, Cylinder, Sphere
-}
 
 public class ShapeFactory {
 	private DialogOptions dialog;
@@ -42,9 +41,32 @@ public class ShapeFactory {
 		this.dialog = dialog;
 	}
 	
+	/**
+	 * @param  ShapeTypetype
+	 * @return Shape
+	 */
 	public Shape make(ShapeType type) {
-		dialog.setOptions(type);
+		MessageBox mb = new MessageBox();
+		JFrame frame = new JFrame();
 		
-		return (Shape) dialog.show();
+		switch(type) {
+			case Cuboid :
+				float cubeDepth = Float.valueOf(JOptionPane.showInputDialog(frame, "Enter depth:")); 
+				float cubeHeight = Float.valueOf(JOptionPane.showInputDialog(frame, "Enter height:")); 
+				float cubeWidth = Float.valueOf(JOptionPane.showInputDialog(frame, "Enter width:")); 
+				
+				return new Cuboid(mb, cubeDepth, cubeHeight, cubeWidth);
+			case Cylinder :
+				float cylinderHeight = Float.valueOf(JOptionPane.showInputDialog(frame, "Enter height:"));
+				float cylibderRadias = Float.valueOf(JOptionPane.showInputDialog(frame, "Enter radias:"));
+				
+				return new Cylinder(mb, cylinderHeight, cylibderRadias);
+			case Sphere :
+				float sphereRadias = Float.valueOf(JOptionPane.showInputDialog(frame, "Enter radias:"));
+				
+				return new Sphere(mb, sphereRadias);
+		}
+		
+		return null;
 	}
 }
